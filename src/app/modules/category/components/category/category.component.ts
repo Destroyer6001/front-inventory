@@ -70,7 +70,28 @@ export class CategoryComponent implements OnInit {
         this.openSnackBar("Ups ha ocurrido un error","Error")
       }
     });
-    
+
+  }
+
+  edit(id:number, name:string, discription:string)
+  {
+    const dialogRef = this.dialog.open(NewCategoryComponent, {
+      data:{id: id, name: name, discription: discription},
+      width: '450px'
+    });
+
+    dialogRef.afterClosed().subscribe((result:any) => {
+      
+      if(result == 1)
+      {
+        this.openSnackBar("Categoria actualizada","Exito");
+        this.getCategories();
+      }
+      else if(result == 2)
+      {
+        this.openSnackBar("Ups ha ocurrido un error","Error")
+      }
+    });
   }
 
   openSnackBar(message:string,action:string):MatSnackBarRef<SimpleSnackBar>
