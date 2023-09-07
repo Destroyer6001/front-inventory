@@ -10,8 +10,22 @@ export class CategoryService {
 
   constructor(private http: HttpClient) { }
 
+  /**
+   * 
+   * Get all categories
+   */
   getCategories(){
     const endpoint = `${base_url}/categories`;
     return this.http.get(endpoint);
+  }
+
+  /**
+   * 
+   * Save Categories
+   */
+
+  saveCategories(body: any){
+    const endpoint = `${base_url}/categories`;
+    return this.http.post(endpoint,body)
   }
 }
