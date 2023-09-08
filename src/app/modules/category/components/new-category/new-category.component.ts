@@ -76,10 +76,6 @@ export class NewCategoryComponent implements OnInit {
       name: [data.name,Validators.required],
       discription: [data.discription, Validators.required]
     });
-
   }
-  
-
-
 
 }
